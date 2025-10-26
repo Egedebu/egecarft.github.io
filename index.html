@@ -1,50 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="und" style="width:100%;height:100%;background-color:black;">
 	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="description" content="Eaglercraft 1.21.1 test directory HTML page" />
-		<meta name="keywords" content="eaglercraft, eaglercraftx, minecraft, 1.21.1" />
-		<title>Eaglercraft 1.21.1</title>
-		<meta property="og:locale" content="en-US" />
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content="Eaglercraft 1.21.1" />
-		<meta property="og:description" content="test directory HTML page" />
-		<link type="image/png" rel="shortcut icon" href="favicon.png" />
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+		<meta name="description" content="Eaglercraft 1.12 test directory HTML page">
+		<meta name="keywords" content="eaglercraft, eaglercraftx, minecraft, 1.12, 1.12.2">
+		<title>Eaglercraft 1.12.2</title>
+		<meta property="og:locale" content="en-US">
+		<meta property="og:type" content="website">
+		<meta property="og:title" content="Eaglercraft 1.12.2">
+		<meta property="og:description" content="test directory HTML page">
+		<link type="image/png" rel="shortcut icon" href="favicon.png">
 		<script type="text/javascript" src="classes.js"></script>
 		<script type="text/javascript">
 			"use strict";
-			window.addEventListener("load", () => {
-				if(document.location.href.startsWith("file:")) {
-					alert("Load This Via HTTP!");
+			window.addEventListener("load", function() {
+				if(window.location.href.indexOf("file:") === 0) {
+					alert("HTTP please, do not open this file locally, run a local HTTP server and load it via HTTP");
 				}else {
-					const relayId = Math.floor(Math.random() * 3);
-					window.eaglercraftOpts = {
+					var relayId = Math.floor(Math.random() * 3);
+					window.eaglercraftXOpts = {
+						demoMode: false,
 						container: "game_frame",
-						assetsURI: "assets/",
+						assetsURI: "assets.epk",
 						localesURI: "lang/",
 						worldsDB: "worlds",
-						logInvalidCerts: false,
-						servers:[],
-						relays: [
-							{ addr: "wss://relay.deev.is/", comment: "lax1dude relay #1", primary: relayId == 0 },
-							{ addr: "wss://relay.lax1dude.net/", comment: "lax1dude relay #2", primary: relayId == 1 },
-							{ addr: "wss://relay.shhnowisnottheti.me/", comment: "ayunami relay #1", primary: relayId == 2 }
-						]
+						servers: [
+							{ addr: "wss://play.zelz.net", name: "ZelzNet" },
+							{ addr: "wss://mc.arch.lol", name: "ArchMC" },
+							{ addr: "wss://beta.arch.lol", name: "§r §r §r §r §4§lArchMC Beta" }
+    						]
 					};
-					
-					var q = window.location.search;
-					if(typeof q === "string" && q.startsWith("?")) {
-						q = new URLSearchParams(q);
-						var s = q.get("server");
-						if(s) window.eaglercraftOpts.joinServer = s;
-					}
-					
 					main();
 				}
 			});
 		</script>
 	</head>
-	<body style="margin:0px;width:100vw;height:100vh;overflow:hidden;" id="game_frame">
+	<body style="margin:0px;width:100%;height:100%;overflow:hidden;background-color:black;" id="game_frame">
 	</body>
 </html>
